@@ -51,22 +51,22 @@ input_ode.reaktion = reaktion                               ;
 
 %% Lösen der Funktion mit der MATLAB-internen Funktion ode15s bzw. ode45
  options = odeset('RelTol',1e-5,'AbsTol',1e-5);
-%    [t_vec , u]       =   ode15s( @(t,u)  DGL(u,input_ode),[0 t_sim], u0(:),options) ;
+    [t_vec , u]       =   ode15s( @(t,u)  DGL(u,input_ode),[0 t_sim], u0(:),options) ;
 %	 [t_vec , u]       =   ode45 ( @(t,u)  DGL(u,input_ode),[0 t_sim], u0(:),options) ;
 
-timeSteps         =     5000*10                             ;
-t_vec             =     linspace(0,t_sim*10,timeSteps)     ;
-u                 =     ones(numel(u0),numel(t_vec))    ;
-u(:,1)            =     u0                              ;
-dt                =     t_vec(2)-t_vec(1)               ;
-
-func = @(u) DGL(u,input_ode);
-
-% Explizites Euler-Verfahren in Matrix-Vektor-Schreibweise 
-for i = 2:1:timeSteps
-    u(:,i)    =   u(:,i-1) + dt .* func(u(:,i-1));     
-end
- u = u.';
+% timeSteps         =     5000*10                             ;
+% t_vec             =     linspace(0,t_sim*10,timeSteps)     ;
+% u                 =     ones(numel(u0),numel(t_vec))    ;
+% u(:,1)            =     u0                              ;
+% dt                =     t_vec(2)-t_vec(1)               ;
+% 
+% func = @(u) DGL(u,input_ode);
+% 
+% % Explizites Euler-Verfahren in Matrix-Vektor-Schreibweise 
+% for i = 2:1:timeSteps
+%     u(:,i)    =   u(:,i-1) + dt .* func(u(:,i-1));     
+% end
+%  u = u.';
  
  
 

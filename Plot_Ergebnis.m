@@ -18,7 +18,7 @@ surf(X,Y,reshape(uu(1:M*N),size(X)))
 % figure(4)
 % surf(X,Y,reshape(uu(3*M*N + 1 : 4*M*N),size(X)))
 figure(5)
-surf(X,Y,reshape(uu(4*M*N + 1 : 5*M*N),size(X)))
+%surf(X,Y,reshape(uu(4*M*N + 1 : 5*M*N),size(X)))
 drawnow
 end
 

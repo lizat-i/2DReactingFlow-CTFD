@@ -91,17 +91,17 @@ startWerteParameter.Temperatur0          = Temperatur0;
 % 
 % %%%%%%% DEBUGGINGMODE%%%%%%%%
 % 
-% TNorth  = 	10 	;
-% TSouth 	= 	50 	;
-% TWest 	= 	50	;
-% TEast 	=	10 	;
-% % 
-% startWerteParameter = struct; 
-% startWerteParameter.cPropylenoxid0       = TWest;
-% startWerteParameter.cWasser0             = TWest;
-% startWerteParameter.cMethanol0           = TWest;
-% startWerteParameter.cPropylenglycol0     = TWest;
-% startWerteParameter.Temperatur0          = TWest;
+TNorth  = 	10 	;
+TSouth 	= 	50 	;
+TWest 	= 	50	;
+TEast 	=	10 	;
+% 
+startWerteParameter = struct; 
+startWerteParameter.cPropylenoxid0       = TWest;
+startWerteParameter.cWasser0             = TWest;
+startWerteParameter.cMethanol0           = TWest;
+startWerteParameter.cPropylenglycol0     = TWest;
+startWerteParameter.Temperatur0          = TWest;
 % 
 % %%%%%%% DEBUGGINGMODE%%%%%%%%
 

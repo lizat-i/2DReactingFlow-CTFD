@@ -39,6 +39,10 @@ r_PropyleneOxid             = r_PropyleneOxid(:);
 % r_PropyleneGlycol  =  -r_PropyleneOxid                        ;
 
 % Differentialgeleichungen für die Konzentrationen:
+
+%spy  (input_ode.mass_balance_Amatrix.c1);
+%dummy = nan; 
+
 dc1_dt      = input_ode.mass_balance_Amatrix.c1 *c_PropyleneOxid   - (input_ode.mass_balance_bvektor.c1   + r_PropyleneOxid)   ;
 % dc2_dt      = input_ode.mass_balance_Amatrix.c2 *c_Wasser          - (input_ode.mass_balance_bvektor.c2   + r_Wasser)          ;
 % dc3_dt      = input_ode.mass_balance_Amatrix.c3 *c_Methanol        - (input_ode.mass_balance_bvektor.c3   + r_Methanol)        ;

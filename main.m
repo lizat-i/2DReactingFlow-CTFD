@@ -51,8 +51,14 @@ input_ode.reaktion = reaktion                               ;
 
 %% Lösen der Funktion mit der MATLAB-internen Funktion ode15s bzw. ode45
  options = odeset('RelTol',1e-5,'AbsTol',1e-5);
+ 
+ disp (     u0(:)       );
+ 
+ DUMMY = nan ;
+ 
+ 
      [t_vec , u]       =   ode15s( @(t,u)  DGL(u,input_ode),[0 t_sim], u0(:),options) ;
- %	 [t_vec , u]       =   ode45 ( @(t,u)  DGL(u,input_ode),[0 t_sim], u0(:),options) ;
+%	 [t_vec , u]       =   ode45 ( @(t,u)  DGL(u,input_ode),[0 t_sim], u0(:),options) ;
 % 
 % timeSteps         =     500                         ;
 % t_vec             =     linspace(0,t_sim*10,timeSteps)     ;

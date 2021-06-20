@@ -9,10 +9,10 @@ dr2     =   dr*dr         ;
 qc1     =   0             ;
  
 cPropylenoxid0      = startWerteParameter.cPropylenoxid0   ;
-cWasser0            = startWerteParameter.cWasser0         ;
-cMethanol0          = startWerteParameter.cMethanol0       ;
-cPropylenglycol0    = startWerteParameter.cPropylenglycol0 ;
-Temperatur0         = startWerteParameter.Temperatur0      ;
+% cWasser0            = startWerteParameter.cWasser0         ;
+% cMethanol0          = startWerteParameter.cMethanol0       ;
+% cPropylenglycol0    = startWerteParameter.cPropylenglycol0 ;
+% Temperatur0         = startWerteParameter.Temperatur0      ;
  
 
 coolingT    =   350;
@@ -24,11 +24,11 @@ alpha       =   5;
 
 [A1_T,b1_T]                             =   Aconstruct_diffusiveTerm_new(A,b,Node_number_matrix,Coordinate_R,dr,dz) ;
 
-
+[A1_T,b1_T]                               =   Dirichlet_diffusionTerm_new(A1_T,b1_T,'West', Node_number_matrix,dr,dz,startWerteParameter.Temperatur0 )       ;
 [A1_T,b1_T]                               =   NeumannBC_diffusionTerm_new(A1_T,b1_T,'South',Node_number_matrix,dr,dz)                                       ;
-[A1_T,b1_T]                               =   NeumannBC_diffusionTerm_new(A1_T,b1_T,'East',Node_number_matrix,dr,dz)                                        ;
-[A1_T,b1_T]                               =   RobinBC_diffusionTerm_new(A1_T,b1_T,'North',Node_number_matrix,dr,dz,coolingT,alpha)                          ;
-[A1_T,b1_T]                               =   Dirichlet_diffusionTerm_new(A1_T,b1_T,'West',Node_number_matrix,dr,dz,startWerteParameter.Temperatur0 )       ;
+[A1_T,b1_T]                               =   NeumannBC_diffusionTerm_new(A1_T,b1_T,'East', Node_number_matrix,dr,dz)                                        ;
+[A1_T,b1_T]                               =   RobinBC_diffusionTerm_new(A1_T,b1_T,'North',  Node_number_matrix,dr,dz,coolingT,alpha)                          ;
+
 
 [A1_T,b1_T]                               =   Aconstruct_diffusiveTerm_new(A1_T,b1_T,Node_number_matrix,Coordinate_R,dr,dz) ;
 
@@ -41,11 +41,14 @@ alpha       =   5;
 
 [A1_c1,b1_c1]                               =   Aconstruct_diffusiveTerm_new(A,b,Node_number_matrix,Coordinate_R,dr,dz) ;
 
-[A1_c1,b1_c1]                               =   NeumannBC_diffusionTerm_new(A1_c1,b1_c1,'South',Node_number_matrix,dr,dz)   ;
-[A1_c1,b1_c1]                              =   NeumannBC_diffusionTerm_new(A1_c1,b1_c1,'North',Node_number_matrix,dr,dz)  ;
-%[A1_c1,b1_c1]                               =   RobinBC_diffusionTerm_new(A1_c1,b1_c1,'North',Node_number_matrix,dr,dz,startWerteParameter.cPropylenoxid0*1.2,5)  ;
-[A1_c1,b1_c1]                               =   NeumannBC_diffusionTerm_new(A1_c1,b1_c1,'East',Node_number_matrix,dr,dz)    ;
 [A1_c1,b1_c1]                               =   Dirichlet_diffusionTerm_new(A1_c1,b1_c1,'West',Node_number_matrix,dr,dz,startWerteParameter.cPropylenoxid0 )    ;
+
+[A1_c1,b1_c1]                               =   NeumannBC_diffusionTerm_new(A1_c1,b1_c1,'South',Node_number_matrix,dr,dz)   ;
+[A1_c1,b1_c1]                               =   NeumannBC_diffusionTerm_new(A1_c1,b1_c1,'East',Node_number_matrix,dr,dz)    ;
+%[A1_c1,b1_c1]                              =   NeumannBC_diffusionTerm_new(A1_c1,b1_c1,'North',Node_number_matrix,dr,dz)  ;
+[A1_c1,b1_c1]                               =   RobinBC_diffusionTerm_new(A1_c1,b1_c1,'North',Node_number_matrix,dr,dz,startWerteParameter.cPropylenoxid0*1.2,5)  ;
+
+
 
 [A1_c1,b1_c1]                               =   Aconstruct_diffusiveTerm_new(A1_c1,b1_c1,Node_number_matrix,Coordinate_R,dr,dz) ;
 

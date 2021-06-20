@@ -1,13 +1,13 @@
 %% Skript zur Definition der Parameter
 % Hier werden Stoffwerte und geometrische Daten initialisiert
 
-L 	= 1                 ; % Länge in Metern
-D     = 0.2               ; % Durchmesser in Metern
+% L 	= 1                 ; % Länge in Metern
+% D     = 0.2               ; % Durchmesser in Metern
 
 % %%%%%%% DEBUGGINGMODE%%%%%%%%
  
-%  L	= 	1;
-%  D 	= 	2;
+ L	= 	1;
+ D 	= 	2;
  
 % %%%%%%% DEBUGGINGMODE%%%%%%%%
 

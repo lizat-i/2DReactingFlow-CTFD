@@ -17,7 +17,7 @@ addpath('ode_function')
 
 N          =  5                    ; % Anzahl der räumlichen Diskretisierungsschritte
 M          =  5                    ;
-t_sim      =  0.01                 ; % Simulationsdauer in Sekunden
+t_sim      =  5                 ; % Simulationsdauer in Sekunden
 %t_sim      =  10000                ; % Simulationsdauer in Sekunden
 
 % Befüllungszustand des Reaktors zu Beginn:       
@@ -51,10 +51,10 @@ input_ode.reaktion = reaktion                               ;
 
 %% Lösen der Funktion mit der MATLAB-internen Funktion ode15s bzw. ode45
  options = odeset('RelTol',1e-5,'AbsTol',1e-5);
-    [t_vec , u]       =   ode15s( @(t,u)  DGL(u,input_ode),[0 t_sim], u0(:),options) ;
-%	 [t_vec , u]       =   ode45 ( @(t,u)  DGL(u,input_ode),[0 t_sim], u0(:),options) ;
-
-% timeSteps         =     5000*10                             ;
+     [t_vec , u]       =   ode15s( @(t,u)  DGL(u,input_ode),[0 t_sim], u0(:),options) ;
+ %	 [t_vec , u]       =   ode45 ( @(t,u)  DGL(u,input_ode),[0 t_sim], u0(:),options) ;
+% 
+% timeSteps         =     500                         ;
 % t_vec             =     linspace(0,t_sim*10,timeSteps)     ;
 % u                 =     ones(numel(u0),numel(t_vec))    ;
 % u(:,1)            =     u0                              ;
@@ -66,7 +66,7 @@ input_ode.reaktion = reaktion                               ;
 % for i = 2:1:timeSteps
 %     u(:,i)    =   u(:,i-1) + dt .* func(u(:,i-1));     
 % end
-%  u = u.';
+% u = u.';
  
  
 

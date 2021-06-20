@@ -4,7 +4,7 @@ d = linspace(0,D/2,M)       ;
 
 
  
-for i = numel(t_vec)-25:1:numel(t_vec)
+for i =  1:numel(t_vec)
 %for i = numel(t_vec)-60:5:numel(t_vec)
 uu = u(i,:);
 
